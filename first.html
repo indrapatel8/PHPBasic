@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body id="dem">
+<?php
+$aa = 10.5;
+$bb = 30.2;
+$cint = "This is ";
+$dint = "String";
+$result = $aa + $bb ;
+$result1 = $dint."".$cint;
+ echo "Sum is : ....".(int)$result;
+  echo "</br>Its Working....".is_int($result);
+  echo "<br/>Its Working....".is_string($result1);
+  $arr = array(1,2,3,4,5,1000);
+  echo "<br/>use of var_dump....".var_dump($arr);
+  $foo = 1 + "10.5";                // $foo is float (11.5)
+$foo = 1 + "-1.3e3";              // $foo is float (-1299)
+?>
+<h1>Hello, World</h1>
+</body>
+</html>
