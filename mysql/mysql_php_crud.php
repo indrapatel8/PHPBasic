@@ -1,3 +1,9 @@
+<?php
+include_once('config.php');
+include_once('db_op.php');
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -72,24 +78,34 @@
 		.form-group label {
 			margin-right: 10px;
 		}
+
+h3{
+	color:Green;
+	width: fit-content;
+	position: absolute; 
+	top: 50px;
+	right: 20px;
+	background-color: #C8C8C8;
+}
+
 	</style>
 </head>
 <body>
 	<center><h2>Employee Registration Form</h2></center>
-	<form action="#" method="POST">
+	<form action="mysql_php_crud.php" method="POST">
 		<label for="name">Name:</label>
-		<input type="text" id="name" name="name" required>
+		<input type="text" id="name" name="name" value="" required>
 		
 		<label for="address">Address:</label>
-		<textarea id="address" name="address" required></textarea>
+		<textarea id="address" name="address"  value="" required></textarea>
 		
 		<div class="form-group">
 			<label for="hobbies">Hobbies:</label>
-			<input type="checkbox" id="hobby1" name="hobbies" value="Reading">
+			<input type="checkbox" id="hobby1" name="hobbies[]" value="Reading">
 			<label for="hobby1">Reading</label>
-			<input type="checkbox" id="hobby2" name="hobbies" value="Sports">
+			<input type="checkbox" id="hobby2" name="hobbies[]" value="Sports">
 			<label for="hobby2">Sports</label>
-			<input type="checkbox" id="hobby3" name="hobbies" value="Music">
+			<input type="checkbox" id="hobby3" name="hobbies[]" value="Music">
 			<label for="hobby3">Music</label>
 		</div>
 		
@@ -104,8 +120,8 @@
 		</div>
 		
 		<div class="form-group">
-				        <input type="reset" value="Reset">
-			    <input type="submit" value="Submit"> 
+				        <input type="submit" name="submit" value="Reset">
+			    <input type="submit"  name="submit" value="Submit"> 
 		</div>
 </form>
 </body>
