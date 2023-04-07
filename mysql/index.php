@@ -2,6 +2,7 @@
 include_once('config.php');
 include_once('create.php');
 include_once('delete.php');
+include_once('update.php');
 ?>
 
 
@@ -149,28 +150,28 @@ tr {
 	</center>
 	<form  action="index.php" method="POST">
 		<label for="name">Name:</label>
-		<input type="text" id="name" name="name" value="" required>
-
+		<input type="text" id="name" name="name" value="<?php echo $name;?>" required>
+		<input type="hidden" id="eid" name="eid" value="<?php echo $eid;?>">
 		<label for="address">Address:</label>
-		<textarea id="address" name="address" value="" required></textarea>
+		<textarea id="address" name="address" required><?php echo $address;?></textarea>
 
 		<div class="form-group">
 			<label for="hobbies">Hobbies:</label>
-			<input type="checkbox" id="hobby1" name="hobbies[]" value="Reading">
+			<input type="checkbox" id="hobby1" name="hobbies[]" <?php if(str_contains($hobby,"Reading")) {echo "checked";}?> value="Reading">
 			<label for="hobby1">Reading</label>
-			<input type="checkbox" id="hobby2" name="hobbies[]" value="Sports">
+			<input type="checkbox" id="hobby2" name="hobbies[]" <?php if(str_contains($hobby,"Sports")) {echo "checked";}?> value="Sports">
 			<label for="hobby2">Sports</label>
-			<input type="checkbox" id="hobby3" name="hobbies[]" value="Music">
+			<input type="checkbox" id="hobby3" name="hobbies[]" <?php if(str_contains($hobby,"Music")) {echo "checked";}?> value="Music">
 			<label for="hobby3">Music</label>
 		</div>
 
 		<div class="form-group">
 			<label for="gender">Gender:</label>
-			<input type="radio" id="male" name="gender" value="Male">
+			<input type="radio" id="male" name="gender" <?php if(str_contains($gender,"Male")) {echo "checked";}?> value="Male">
 			<label for="male">Male</label>
-			<input type="radio" id="female" name="gender" value="Female">
+			<input type="radio" id="female" name="gender" <?php if(str_contains($gender,"Female")) {echo "checked";}?> value="Female">
 			<label for="female">Female</label>
-			<input type="radio" id="other" name="gender" value="Other">
+			<input type="radio" id="other" name="gender" <?php if(str_contains($gender,"Other")) {echo "checked";}?> value="Other">
 			<label for="other">Other</label>
 		</div>
 
