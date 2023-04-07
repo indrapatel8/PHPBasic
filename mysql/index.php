@@ -1,11 +1,13 @@
 <?php
 include_once('config.php');
-include_once('db_op.php');
+include_once('create.php');
+include_once('delete.php');
 ?>
 
 
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Employee Registration Form</title>
 	<style>
@@ -18,13 +20,13 @@ include_once('db_op.php');
 			font-size: 16px;
 			line-height: 1.5;
 		}
-		
+
 		label {
 			display: block;
 			margin-bottom: 10px;
 			font-weight: bold;
 		}
-		
+
 		input[type="text"],
 		textarea {
 			display: block;
@@ -36,13 +38,13 @@ include_once('db_op.php');
 			box-sizing: border-box;
 			font-size: 16px;
 		}
-		
+
 		input[type="checkbox"],
 		input[type="radio"] {
 			margin-right: 10px;
 			vertical-align: middle;
 		}
-		
+
 		input[type="submit"],
 		input[type="reset"] {
 			background-color: #4CAF50;
@@ -53,52 +55,105 @@ include_once('db_op.php');
 			font-size: 16px;
 			cursor: pointer;
 			margin-top: 20px;
-			text-align:center;
-			margin-left:10px;
-			 display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 30%;
+			text-align: center;
+			margin-left: 10px;
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+			width: 30%;
 		}
-		
+
 		input[type="submit"]:hover,
 		input[type="reset"]:hover {
 			background-color: #3e8e41;
 		}
-		
+
 		.form-group {
 			display: flex;
 			align-items: center;
 			margin-bottom: 4px;
 		}
-		
-		.form-group label {
-			margin-right: 10px;
-		}
+
 		.form-group label {
 			margin-right: 10px;
 		}
 
-h3{
-	color:Green;
-	width: fit-content;
-	position: absolute; 
-	top: 50px;
-	right: 20px;
-	background-color: #C8C8C8;
-}
+		.form-group label {
+			margin-right: 10px;
+		}
+
+		h3 {
+			color: Green;
+			width: fit-content;
+			position: absolute;
+			top: 50px;
+			right: 20px;
+			background-color: #C8C8C8;
+		}
+		h2 {
+			color: blue;
+			width: fit-content;
+			text-align: center;
+			background-color: #C8C8C8;
+		}
+
+
+/* Style for the rows */
+tr {
+    background-color: #f2f2f2;
+    border: 1px solid #ddd;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  /* Style for the font */
+  td, th {
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    color: #444;
+    padding: 8px;
+    text-align: left;
+  }
+
+  /* Style for action buttons */
+  .action-btn {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin-right: 4px;
+    cursor: pointer;
+  }
+
+  .action-btn:hover {
+    background-color: #3e8e41;
+  }
+
+  .delete-btn {
+    background-color: #f44336;
+  }
+
+  .delete-btn:hover {
+    background-color: #da190b;
+  }
 
 	</style>
 </head>
+
 <body>
-	<center><h2>Employee Registration Form</h2></center>
-	<form action="mysql_php_crud.php" method="POST">
+	<center>
+		<h2>Employee Registration Form</h2>
+	</center>
+	<form  action="index.php" method="POST">
 		<label for="name">Name:</label>
 		<input type="text" id="name" name="name" value="" required>
-		
+
 		<label for="address">Address:</label>
-		<textarea id="address" name="address"  value="" required></textarea>
-		
+		<textarea id="address" name="address" value="" required></textarea>
+
 		<div class="form-group">
 			<label for="hobbies">Hobbies:</label>
 			<input type="checkbox" id="hobby1" name="hobbies[]" value="Reading">
@@ -108,7 +163,7 @@ h3{
 			<input type="checkbox" id="hobby3" name="hobbies[]" value="Music">
 			<label for="hobby3">Music</label>
 		</div>
-		
+
 		<div class="form-group">
 			<label for="gender">Gender:</label>
 			<input type="radio" id="male" name="gender" value="Male">
@@ -118,11 +173,17 @@ h3{
 			<input type="radio" id="other" name="gender" value="Other">
 			<label for="other">Other</label>
 		</div>
-		
+
 		<div class="form-group">
-				        <input type="submit" name="submit" value="Reset">
-			    <input type="submit"  name="submit" value="Submit"> 
+			<input type="submit" name="submit" value="Reset">
+			<input type="submit" name="submit" value="Submit">
 		</div>
-</form>
+	
+	</form>
+	<?php
+	include_once('display.php');
+	?>
+
 </body>
+
 </html>

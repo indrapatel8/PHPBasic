@@ -3,7 +3,7 @@ if(isset($_POST['submit'])){
     if($_POST['submit']=="Submit"){
 //        $_POST['name']
   //      $_POST['address']
-        // implode function will conver array to string with seprator
+        // implode function will convert array to string with seprator
         //implode(":", $_POST['hobbies']);
         //echo "<br/>".$_POST['gender'];
         mysqli_query($conn, "insert into employees (`ename`, `eaddress`, `hobby`, `gender`) values ('".$_POST['name']."','".$_POST['address']."','".implode(":", $_POST['hobbies'])."','".$_POST['gender']."')");
@@ -18,4 +18,3 @@ else{
         echo "Reset";
        }
 }
-?>
