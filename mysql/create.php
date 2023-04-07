@@ -18,7 +18,6 @@ if (isset($_REQUEST['updateId'])) {
   mysqli_free_result($resultUpdate);
 }
 
-
 if (isset($_POST['submit'])) {
   if ($_POST['submit'] == "Submit") {
 
@@ -50,8 +49,7 @@ if (isset($_POST['submit'])) {
   }
 }
 
-function resetPHPValue()
-{
+function resetPHPValue(){
   $eid = "";
   $name = "";
   $address = "";

@@ -1,7 +1,7 @@
 <hr><hr>
 <center><h2>: Registered Employee Information : </h2>
 <hr>
-<table>
+<table border=1>
   <thead>
     <tr>
     <th>Sr No</th>  
@@ -19,7 +19,7 @@
  $count=1;
  // <a href ='mysql_php_crud.php?id=".$field[0].">Delete</a></td>
  while ($field = $result -> fetch_array(MYSQLI_NUM))
-    { echo "<tr><td>".$count++."</td><td>".$field[1]."</td><td>".$field[2]."</td><td>".$field[3]."</td><td>".$field[4]."</td><td><button class='action-btn' onClick='myUpdate($field[0])'>Update</button><a href ='index.php?delid=$field[0]'>Delete</a></td></tr>";
+    { echo "<tr><td>".$count++."</td><td>".$field[1]."</td><td>".$field[2]."</td><td>".$field[3]."</td><td>".$field[4]."</td><td><button class='action-btn' onClick='myUpdate($field[0])'>Update</button>&nbsp;&nbsp;&nbsp;<a href ='index.php?delid=$field[0]'>Delete</a></td></tr>";
     }
 mysqli_free_result($result);
 ?>

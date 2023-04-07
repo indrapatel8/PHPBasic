@@ -2,7 +2,6 @@
 include_once('config.php');
 include_once('create.php');
 include_once('delete.php');
-include_once('update.php');
 ?>
 
 
